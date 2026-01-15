@@ -51,7 +51,7 @@ python -m twine upload dist/*
 ### 5. Verify installation
 ```bash
 pip install spintaxpy
-python -c "from spintax import parse; print(list(parse('Hello {world|friend}!')))"
+python -c "from spintaxpy import parse; print(list(parse('Hello {world|friend}!')))"
 ```
 
 ## Post-Release

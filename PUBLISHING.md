@@ -80,7 +80,7 @@ pip install spintaxpy
 
 Test the installation:
 ```python
-from spintax import parse, count, choose
+from spintaxpy import parse, count, choose
 
 # Test basic functionality
 result = list(parse('Hello, {world|friend}!'))
@@ -110,7 +110,7 @@ When releasing a new version:
 ## Package Information
 
 - **Package name on PyPI**: spintaxpy
-- **Import name**: spintax
+- **Import name**: spintaxpy
 - **Current version**: 1.0.0
 - **License**: MIT
 - **Python compatibility**: >=3.6
