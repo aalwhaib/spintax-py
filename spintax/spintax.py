@@ -323,7 +323,7 @@ def parse(template: str,
     for pattern in patterns:
         back_ref_match = back_reference_regex.match(pattern)
         
-        if back_ref_match and back_ref_match.group(0) == pattern and pattern.strip() == back_ref_match.group(0):
+        if back_ref_match and back_ref_match.group(0) == pattern:
             # This is a back reference pattern
             ref_index = int(back_ref_match.group(1))
             back_references.append(ref_index)
@@ -436,7 +436,7 @@ def count(template: str,
     for pattern in patterns:
         back_ref_match = back_reference_regex.match(pattern)
         
-        if not (back_ref_match and back_ref_match.group(0) == pattern and pattern.strip() == back_ref_match.group(0)):
+        if not (back_ref_match and back_ref_match.group(0) == pattern):
             # This is a regular pattern (not a back reference)
             actual_choice_patterns.append(pattern)
     
@@ -495,7 +495,7 @@ def choose(template: str,
     for pattern in patterns:
         back_ref_match = back_reference_regex.match(pattern)
         
-        if back_ref_match and back_ref_match.group(0) == pattern and pattern.strip() == back_ref_match.group(0):
+        if back_ref_match and back_ref_match.group(0) == pattern:
             # This is a back reference pattern
             ref_index = int(back_ref_match.group(1))
             back_references.append(ref_index)
