@@ -93,7 +93,7 @@ When releasing a new version:
 
 1. Update version in both:
    - `pyproject.toml` (line 6)
-   - `spintax/__init__.py` (line 11)
+   - `spintaxpy/__init__.py` (line 11)
    - `setup.py` (line 10) - if keeping setup.py
 
 2. Clean previous builds:

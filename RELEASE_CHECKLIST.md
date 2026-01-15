@@ -12,14 +12,14 @@
 ## Package Information
 
 - **PyPI Package Name**: spintaxpy
-- **Import Name**: spintax
+- **Import Name**: spintaxpy
 - **Current Version**: 1.0.0
 - **License**: MIT
 - **Python Compatibility**: >=3.6
 
 ## Files Included in Distribution
 
-✓ Source code (spintax/__init__.py, spintax/spintax.py)
+✓ Source code (spintaxpy/__init__.py, spintaxpy/spintax.py)
 ✓ README.md
 ✓ LICENSE
 ✓ Tests (tests/test_spintax.py)
