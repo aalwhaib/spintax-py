@@ -4,6 +4,11 @@ A combinatorial string generation library that creates all possible combinations
 
 This is a Python implementation of the [spintax](https://github.com/johnhenry/spintax) JavaScript library, providing identical functionality for generating string variations using pattern syntax.
 
+## Requirements
+
+- Python 3.8+ (no external runtime dependencies)
+- Works anywhere Python runs: scripts, tests, data pipelines, CLIs
+
 ## Installation
 
 Install from PyPI:
@@ -16,6 +21,20 @@ Or install from source:
 
 ```bash
 pip install .
+```
+
+## Quickstart
+
+```python
+from spintaxpy import parse, count, choose
+
+print(count("Hello {world|people}!"))  # 2 combinations
+
+print(list(parse("Item {1,3}")))  # ['Item 1', 'Item 2', 'Item 3']
+
+pick = choose("{small|large} {box|circle}")
+print(pick())      # Random choice, e.g., "large circle"
+print(pick(0, 1))  # Deterministic: "small circle"
 ```
 
 ## Basic Usage
@@ -56,6 +75,22 @@ associations = parse("The {blue|straw|rasp}berries taste like {$0}berries")
 - **Memory-efficient**: Uses Python generators for lazy evaluation
 - **Multiple variable types**: Choose from predefined options or numerical ranges
 - **Back references**: Reference previously selected choices within the same template
+
+## Custom delimiters and separators
+
+All delimiters are configurable so you can embed patterns inside other markup:
+
+```python
+# Use [ ] instead of { }
+list(parse("Choose [red|blue]", pattern_start="[", pattern_end="]"))
+
+# Change choice/range separators
+list(parse("{A;B;C}", separator_choices=";"))
+list(parse("{0:10:2}", separator_range=":"))
+
+# Change back reference marker
+list(parse("{left|right} and {#0}", back_reference_marker="#"))
+```
 
 ## Pattern Syntax
 
@@ -212,6 +247,22 @@ picker = choose("The {red|blue|green} {box|circle}")
 picker()  # Random combination like "The red box"
 picker(0, 1)  # Specific combination "The red circle"
 picker(2, 0)  # "The green box"
+
+For repeatable results, pass explicit indices as shown above or set `random.seed(...)` before calling `picker()` without arguments. Seeding is handy in tests and docs: it makes successive random calls return the same sequence every time your process starts.
+
+```python
+import random
+from spintaxpy import choose
+
+picker = choose("{alpha|beta} {cat|dog}")
+
+random.seed(42)         # Fix the RNG state
+print(picker())         # Always "beta dog" with this seed
+print(picker())         # Always "alpha dog" with this seed
+
+random.seed(42)         # Reset seed -> same sequence again
+print(picker())         # "beta dog" (matches first call)
+```
 ```
 
 ### `spintax_range(start, end, step=1, include_end=True)`
