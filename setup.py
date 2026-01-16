@@ -7,7 +7,7 @@ with open("README.md", "r", encoding="utf-8") as fh:
 
 setup(
     name="spintaxpy",
-    version="1.0.0",
+    version="1.0.1",
     author="alwahib",
     description="A combinatorial string generation library that creates all possible combinations from templates with variable elements",
     long_description=long_description,
