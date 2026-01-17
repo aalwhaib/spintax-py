@@ -19,7 +19,7 @@
 
 ## Files Included in Distribution
 
-✓ Source code (spintaxpy/__init__.py, spintaxpy/spintax.py)
+✓ Source code (`spintaxpy/__init__.py`, `spintaxpy/spintax.py`)
 ✓ README.md
 ✓ LICENSE
 ✓ Tests (tests/test_spintax.py)
@@ -28,27 +28,32 @@
 ## Quick Publishing Steps
 
 ### 1. Clean previous builds
+
 ```bash
 rm -rf dist/ build/ *.egg-info
 ```
 
 ### 2. Build the package
+
 ```bash
 python -m build
 ```
 
 ### 3. (Optional) Test on TestPyPI first
+
 ```bash
 python -m twine upload --repository testpypi dist/*
 pip install --index-url https://test.pypi.org/simple/ spintaxpy
 ```
 
 ### 4. Upload to PyPI
+
 ```bash
 python -m twine upload dist/*
 ```
 
 ### 5. Verify installation
+
 ```bash
 pip install spintaxpy
 python -c "from spintaxpy import parse; print(list(parse('Hello {world|friend}!')))"
@@ -56,7 +61,7 @@ python -c "from spintaxpy import parse; print(list(parse('Hello {world|friend}!'
 
 ## Post-Release
 
-- [ ] Verify package appears on https://pypi.org/project/spintaxpy/
+- [ ] Verify package appears on [https://pypi.org/project/spintaxpy/](https://pypi.org/project/spintaxpy/)
 - [ ] Test installation from PyPI
 - [ ] Update GitHub release tags
 - [ ] Announce release

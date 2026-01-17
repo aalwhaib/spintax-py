@@ -5,10 +5,11 @@ This document provides instructions for publishing the spintaxpy package to PyPI
 ## Prerequisites
 
 1. Create accounts on:
-   - PyPI (production): https://pypi.org/account/register/
-   - TestPyPI (testing): https://test.pypi.org/account/register/
+   - PyPI (production): [https://pypi.org/account/register/](https://pypi.org/account/register/)
+   - TestPyPI (testing): [https://test.pypi.org/account/register/](https://test.pypi.org/account/register/)
 
 2. Install required tools:
+
    ```bash
    pip install --upgrade build twine
    ```
@@ -22,6 +23,7 @@ python -m build
 ```
 
 This creates two files in the `dist/` directory:
+
 - `spintax_py-1.0.0.tar.gz` (source distribution)
 - `spintax_py-1.0.0-py3-none-any.whl` (wheel distribution)
 
@@ -51,9 +53,9 @@ You'll be prompted for your PyPI credentials.
 
 For better security, use API tokens instead of passwords:
 
-1. Go to https://pypi.org/manage/account/token/
-2. Create a new API token with scope "Entire account" or specific to this project
-3. Create a `~/.pypirc` file:
+1. Go to [account token](https://pypi.org/manage/account/token/).
+2. Create a new API token with scope "Entire account" or specific to this project.
+3. Create a `~/.pypirc` file in user home directory:
 
 ```ini
 [pypi]
@@ -66,6 +68,7 @@ password = pypi-AgENdGVzdC5weXBpLm9yZw...  # Your token here
 ```
 
 Then upload without being prompted:
+
 ```bash
 python -m twine upload dist/*
 ```
@@ -79,6 +82,7 @@ pip install spintaxpy
 ```
 
 Test the installation:
+
 ```python
 from spintaxpy import parse, count, choose
 
@@ -97,11 +101,13 @@ When releasing a new version:
    - `setup.py` (line 10) - if keeping setup.py
 
 2. Clean previous builds:
+
    ```bash
    rm -rf dist/ build/ *.egg-info
    ```
 
 3. Build and upload the new version:
+
    ```bash
    python -m build
    python -m twine upload dist/*
@@ -117,6 +123,6 @@ When releasing a new version:
 
 ## Resources
 
-- PyPI Project Page: https://pypi.org/project/spintaxpy/ (after first publish)
-- Packaging User Guide: https://packaging.python.org/
-- Twine Documentation: https://twine.readthedocs.io/
+- PyPI Project Page: [spintaxpy](https://pypi.org/project/spintaxpy/) (after first publish)
+- Packaging User Guide: [https://packaging.python.org/](https://packaging.python.org/)
+- Twine Documentation: [https://twine.readthedocs.io/](https://twine.readthedocs.io/)

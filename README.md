@@ -199,6 +199,7 @@ list(parse("The color is {red|green|blue}. The letter is {A|B|C}"))
 Parses a template string with special patterns and returns a generator.
 
 **Parameters:**
+
 - `template` (str): Template string with `{...}` patterns
 - `pattern_start` (str, optional): Pattern start delimiter (default: `'{'`)
 - `pattern_end` (str, optional): Pattern end delimiter (default: `'}'`)
@@ -209,6 +210,7 @@ Parses a template string with special patterns and returns a generator.
 **Returns:** Iterator of all pattern combinations
 
 **Example:**
+
 ```python
 for result in parse('Count: {1,5}'):
     print(result)
@@ -223,6 +225,7 @@ Counts the number of combinations for a given string template.
 **Returns:** Total number of combinations (int)
 
 **Example:**
+
 ```python
 from spintaxpy import count
 
@@ -240,6 +243,7 @@ Creates a function that returns a single combination (random or by index).
 **Returns:** Function that accepts indices and returns a single combination
 
 **Example:**
+
 ```python
 from spintaxpy import choose
 
@@ -247,6 +251,7 @@ picker = choose("The {red|blue|green} {box|circle}")
 picker()  # Random combination like "The red box"
 picker(0, 1)  # Specific combination "The red circle"
 picker(2, 0)  # "The green box"
+```
 
 For repeatable results, pass explicit indices as shown above or set `random.seed(...)` before calling `picker()` without arguments. Seeding is handy in tests and docs: it makes successive random calls return the same sequence every time your process starts.
 
@@ -263,13 +268,13 @@ print(picker())         # Always "alpha dog" with this seed
 random.seed(42)         # Reset seed -> same sequence again
 print(picker())         # "beta dog" (matches first call)
 ```
-```
 
 ### `spintax_range(start, end, step=1, include_end=True)`
 
 Creates a generator that yields numbers within a specified range.
 
 **Parameters:**
+
 - `start` (float): Starting value (inclusive)
 - `end` (float): Ending value (inclusive)
 - `step` (float, optional): Increment between values (default: 1)
@@ -278,6 +283,7 @@ Creates a generator that yields numbers within a specified range.
 **Returns:** RangeGenerator instance
 
 **Example:**
+
 ```python
 from spintaxpy import spintax_range
 
